@@ -1,4 +1,4 @@
----
+<!-- --- -->
 typora-copy-images-to: p
 ---
 
@@ -380,7 +380,44 @@ unique1(array) // [1, 5, 2, 3, 4]
 
 我不知道let和const的区别
 
+### ◇A-2
+
+- ES5：
+
+```js
+var array = [1,5,2,3,4,2,3,1,3,4]
+function unique(xxx){
+  var arr = []
+  var hash = {}
+  for(var i=0; i<xxx.length; i++){
+    if(hash[xxx[i]] === undefined){
+      arr.push(xxx[i])
+      hash[xxx[i]] = 0
+    }
+  }
+  return arr
+}
+unique(array) //[1, 5, 2, 3, 4]
+```
+
+关键在于再增加一个hash的数据结构啊，根据这个hash，就可以找到答案了啊
+
+- ES6：
+
+```js
+function unique1(xxx) {
+	return [...new Set(xxx)]
+}
+unique1(array) //[1, 5, 2, 3, 4]
+```
+
+厉害了，es6拓展运算符
+
+
+
 ### ◇参考资料
 
 - [JavaScript forEach() 方法](http://www.runoob.com/jsref/jsref-foreach.html)
 - [Set——阮一峰](http://es6.ruanyifeng.com/#docs/set-map)
+- [如何实现数组去重？](https://www.jianshu.com/p/4e4ac6a05f6b)
+- [ES6---扩展运算符和rest‘...’(三点运算符)，在数组、函数、set/map等中的应用](https://blog.csdn.net/Wbiokr/article/details/67647753)
