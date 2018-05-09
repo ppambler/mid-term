@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端是怎么做适配的</title>
+</head>
+<body>
+    <h1>移动端是怎么做适配的？</h1>
+    <h2>方案一：使用meta:viewport</h2>
+    <p>
+            <meta name="viewport" content="width=376, 
+            user-scalable=no, initial-scale=1.0, 
+            maximum-scale=1.0, minimum-scale=1.0">
+
+        1. 定义一个meta 标签，有name属性和content属性；
+        2. name值为「viewport」；
+        3. content有5个值：
+            width: 值一般为设备的宽度大小；
+            user-scalable: 规定用户是否可以缩放页面；
+            initial-scale: 初始页面缩放比例；
+            maximum-scale: 最大页面缩放比例；
+            minimum-scale: 最小页面缩放比例；
+    </p>
+    <h2>方案二：媒体查询</h2>
+    <p>「媒体查询」能在不同的条件下使用不同的样式，使页面达到不同的渲染效果</p>
+    <p>有两种途径可以实现：一是「link元素中的CSS媒体查询」；二是「式表中的CSS媒体查询」</p>
+    
+
+    <h2>方案三：使用rem</h2>
+    <p>「rem」是根据网页的根元素来设置字体大小的，如果根是默认的16px,而你的字体为0.75rem,则
+        字体的显示大小为12px（16px*0.75）。而且，rem同样可适用width height margin这些样式的单位
+    </p>
+    <p>
+        做法：要做移动端的适配，<br>
+        计算rem基准值，一般拿到设备的宽度除以10，得到值就是根元素的字体大小值 <br>
+        由于这个基准值是根据设备的宽度动态变化的，这意味着，单位为rem的数值也是动态变化的。
+        从而做到移动端的自适配
+
+    </p>
+</body>
+</html>

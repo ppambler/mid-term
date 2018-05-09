@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包是什么？其用途又是什么？</title>
+</head>
+
+<body>
+    <h1>什么是闭包，闭包的用途是什么？</h1>
+
+    <p>是什么？「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包</p>
+    <p>用途？闭包常常用来「间接访问一个局部变量」</p>
+    <p>一个函数的调用结束，意味着调用完就释放内存，即函数里的局部变量，正如「轻轻的我走了正如我轻轻的来」
+        <br> 可是，存在闭包的函数，就不会了，
+
+    </p>
+    <p>闭包是什么？
+        <br> 在一个x函数里，有一个局部变量n和一个需要访问n的y函数，这个n和y就构成了闭包
+        <br> 用途？
+        <br> 要想闭包被使用，需要让外面能访问到这个y函数就可以了，如返回值y赋予了这个全局变量z,
+        <br/>由于这个z依赖于y，而y依赖于局部变量n,所以说，这个n不会在调用x结束后被释放掉，这意味着
+        <br>你可以间接访问局部变量n的值，这就是它常用的用途
+        <br> demo参考：
+
+
+    </p>
+    <script>
+        // 没有闭包的函数,调用一次函数,其局部变量就被释放了
+        function o() {
+            var m = 1
+            console.log(m)
+            return m
+        }
+
+        var p = o()
+        function x() {
+            var n = 1
+            function y() {
+                console.log(++n)
+            }
+            return y
+        }
+        var z = x()
+        z()
+        z()
+        console.dir(z)
+        // 再调用一次x,发现z()不会影响f,照理说会是这样的345,结果是2开始先
+        var f = x()
+        f()
+        f()
+        f()
+        console.dir(f)
+    </script>
+</body>
+
+</html>

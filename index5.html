@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>call、apply、bind 的用法分别是什么？</h1>
+    关于call的用法：
+    call的用法很简单，当你在调用一个函数
+
+    apply:  <br>
+    apply()是函数对象的一个方法，它的作用是改变函数的调用对象，<br>
+    它的第一个参数就表示改变后的调用这个函数的对象。因此，this指的就是这第一个参数
+    非严格模式下，不写参数，默认就是全局对象
+    用法与call()类似
+
+
+    <p>我的答案：</p>
+    <p>它们三者都是用来改变函数的this对象的指向的；而常见this的用法有三：</p>
+    <p>(1)纯粹的函数调用</p>
+    <p>(2)作为对象方法的调用</p>
+    <p>(3)作为构造函数调用</p>
+    
+
+    <p>最终答案：</p>
+    <p>它们的共同点：</p>
+    <p>call、apply和bind 是Function对象自带的三个方法，这三个方法的主要作用是改变函数中的this指向。</p>
+    <p>apply 、 call 、bind 三者第一个参数都是this要指向的对象</p>
+    <p>apply 、 call 、bind 三者都可以利用后续参数传参</p>
+    <p>bind是ES5出现的，与前面两个区别；如bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。</p>
+    <p>有这么一段demo：</p>
+    function x(yyy) {
+        console.log()
+    }
+     <p>用法：</p>
+    <p>call():这种写法x()与x.call()没有区别，若x中有this，那么这里的this就是严格模式下的window了</p>
+    <p>apply():与call()的用法一致，不过，就是接受参数的方式不太一样，call()直接传参数就可以了；<br>
+        而apply()则是传一个数组或者是伪数组，作为x的函数参数了啊
+    </p>
+
+</body>
+</html>
